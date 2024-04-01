@@ -37,7 +37,7 @@ ws.onmessage = (mensagemRecebida) => {
         chatBotton()
     }
 }
-function enviar() {j
+function enviar() {
     // let mensagem = document.getElementById("mensagem");
     let nomeUser = document.getElementById("nome").textContent;
     let userId = document.getElementById("user_id").value;
