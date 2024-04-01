@@ -1,0 +1,11 @@
+body{
+     padding: 0px !important;
+     margin: 0px !important;
+}
+.divMsg{
+     background-color: rgba(0, 0, 0, 0.521) !important; 
+
+}
+.main{
+     overflow-y: scroll !important;
+}

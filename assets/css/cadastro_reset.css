@@ -1,0 +1,105 @@
+      *{
+        margin:0;
+        font-family: Sans-Serif;
+        color: white;
+      }
+      a{
+        text-decoration: none;
+        font-weight: bold;
+      }
+      input{
+        outline: none;
+      }
+      i{
+        cursor: pointer;
+      }
+      #corpo{
+        background-image: /*url("../img/background.jpg")*/ linear-gradient(white,#fc9cd4);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap:3rem;
+        align-items: center;
+        justify-content: center;
+        
+      }
+
+
+      #conteiner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+      }
+      #remember{
+        display:flex;
+        align-items: center;
+        gap:0.4em;
+      }
+      .campo{
+        display: flex;
+        width: 250px;
+        border-radius:15px;
+        padding:0px 15px;/*
+        justify-content: space-between;*/
+        align-items: center;
+        background:rgb(255,255,255,0.25);
+      }
+      .campo_input{
+        border: 0px;
+        border-radius: inherit;
+        width:90%;
+        background:rgb(255,255,255,0);
+        height: 30px;
+        
+      }
+      .opcoes{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:0.5rem;
+        font-weight: bold;
+      }
+      .campo_input::placeholder{
+        color:white;
+      }
+      .botao{
+        width: 96%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.2em;
+        border-radius: 20px;
+        background-color: #fc9cd4;
+        cursor: pointer;
+      }
+      .opcoes_botao{
+        padding:0.5rem 1.6rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+      }
+      #logo_img{
+	width: 100px;
+	aspect-ratio:1/1;
+}
+      
+@media (max-width: 770px) { 
+  .opcoes{
+    flex-direction: column;
+    gap:0.9em;
+    align-items: flex-start;
+  }
+  .opcoes-botao{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+}
+@media (max-width:1064px){
+  
+}

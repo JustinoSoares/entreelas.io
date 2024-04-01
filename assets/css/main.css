@@ -1,0 +1,84 @@
+:root {
+  /* Colors */
+  --primary: #f299d3;
+  --secondary: #f079f2;
+  --white: #f2f2f2;
+  --suave: #f2c2d8;
+  --black: #0d0d0d;
+  --grey: #fcfafa;
+  --fontPoppins: "Poppins", sans-serif;
+  --fontInter: "Inter", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: var(--fontPoppins);
+  background-color: var(--grey);
+}
+
+p {
+  font-family: var(--fontInter);
+}
+.customizedBgHeader {
+  background: #ffffffe5 !important;
+  backdrop-filter: blur(10px);
+}
+i {
+  font-size: 1.2rem;
+}
+.backCard {
+  background-color: rgba(226, 217, 217, 0.6);
+  backdrop-filter: blur(5px);
+}
+.offcanvas {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+.cardGuide {
+  transform: translateY(-3rem);
+  opacity: 0.5;
+}
+
+.animationBack {
+  display: flex !important;
+  animation: animationBack  0.1s ease-in-out forwards;
+}
+.animationCard {
+  animation: animationCard 0.3s 0.8s ease-in-out forwards;
+}
+.cardOffCanvas {
+  transform: translateX(40rem);
+  transition: transform .15 ease-in-out;
+}
+
+.animationOffCanvas{
+  animation: scrollOffCanavs .4s .2s ease-in-out forwards;
+}
+@keyframes animationBack {
+  from {
+    backdrop-filter: blur(5px);
+  }
+  to {
+    backdrop-filter: blur(10px);
+  }
+}
+@keyframes animationCard {
+  from {
+    transform: translateY(-3rem);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes scrollOffCanavs {
+  from {
+    transform: translateX(40rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
