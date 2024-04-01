@@ -122,13 +122,11 @@ $conversaActual = $cmd->fetch(PDO::FETCH_ASSOC);
             <button type="submit" onclick="enviar()" id="btnSend" class="flex float-left">
                 <i class="bi bi-send-fill text-[20pt]  text-pink-600 cursor-pointer"></i>
             </button>
-
         </div>
     </form>
 </body>
-<script src="../assets/js/custom.js">
-
-</script>
+<script src="../assets/js/custom.js"></script>
+<script src="../assets/js/remote.js"></script>
 
 
 </html>
