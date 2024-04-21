@@ -58,7 +58,6 @@ class SistemaChat implements MessageComponentInterface
   }
 
   private function salvarMensagemNoBancoDeDados($mensagem)
-
   {
     $dbConnection = new DbConnection();
     $conn = $dbConnection->getConnection();

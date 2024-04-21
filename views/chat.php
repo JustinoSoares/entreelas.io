@@ -62,9 +62,9 @@ $conversaActual = $cmd->fetch(PDO::FETCH_ASSOC);
         <div class="flex gap-2 items-center">
             <div class="ms-4 bg-white rounded-full w-12 h-12">
                 <a href="inicio.php">
-                   <img src="../assets/img/Logo.png" alt="" class="rounded-full bg-red-600 w-full h-full">  
+                    <img src="../assets/img/Logo.png" alt="" class="rounded-full bg-red-600 w-full h-full">
                 </a>
-               
+
             </div>
             <div class="flex flex-col text-white justify-center w-[80vw]">
 
@@ -79,30 +79,41 @@ $conversaActual = $cmd->fetch(PDO::FETCH_ASSOC);
         </aside>
     </header>
     <!-- Campo de mensagem -->
-    <main class=" w-full  -z-10 main overflow-y-scroll  bg-slate-700 px-2 pt-20 pb-3" id="chatBox" style="height: 91vh;">
-       <!-- <span><?= $conversaActual["conteudo"] ?></span>  -->
-       <div class=" rounded-md w-auto max-w-[90%] md:max-w-[70%] flex justify-center mx-auto p-1">
-       <span class="flex flex-col max-w-[70%]  bg-slate-600  text-center  text-yellow-200 justify-center p-2 my-1  rounded-md">
-       <?= $conversaActual["conteudo"] ?>
-       </span> 
-       </div>
-      
-       <span id="mensagem-chat"></span>
-       <dialog id="del_dialog_mensagem" class="w-[90%] md:w-[70%] lg:w-[40rem] h-[20rem] rounded-[5px] ">
-       <span class="hidden" id="del_mensagem_id"></span>
-        <form action="../controllers/chat.php" method="post">
-             <h3>Tem a certeza que deseja deletar essa mensagem?</h3>
-            <div id="del_cancelar" class="cursor-pointer">cancelar</div>
-            <button type="submit">Deletar</button>
-            <?php $_SESSION["conversa_id"] = $conversa_id?>
-        </form>
-           
-    
-       </dialog>
+    <main class=" w-full h-[100vh] pb-16 -z-10 main overflow-y-scroll px-2 pt-20" id="chatBox" style="background-image: url('../assets/img/fundoChat2.jpeg'); background-repeat:no-repeat; background-size: cover; background-position: 100% 100%; background-attachment: fixed;">
+        <!-- <span><?= $conversaActual["conteudo"] ?></span>  -->
+        <div class=" rounded-md w-auto max-w-[90%] md:max-w-[70%] flex justify-center mx-auto p-1">
+            <span class="flex flex-col max-w-[70%] text-[13px]  bg-slate-800  text-center  text-yellow-700 justify-center items-center p-2 my-1  rounded-md">
+                <i class="bi bi-megaphone-fill"></i>
+                <?= $conversaActual["conteudo"] ?>
+            </span>
+        </div>
+
+        <span id="mensagem-chat"></span>
+        <!-- Dialog -->
+        <dialog id="del_dialog_mensagem" class="w-[90%] md:w-[70%] lg:w-[40rem] h-[20rem] rounded-[5px] bg-slate-600">
+
+            <form action="../controllers/chat.php" method="post" class="">
+                <input type="text" id="del_mensagem_id">
+                <div>
+                    <div class="flex justify-start mt-5 ms-5 items-center text-center">
+                        <h3 class="text-white">Tem a certeza que deseja deletar essa mensagem?</h3>
+                    </div>
+                    <div class="flex absolute bottom-3 right-0 flex-col-reverse justify-end gap-3 me-5  items-end ">
+                        <div id="del_cancelar" class="border rounded-full font-normal text-white bg-pink-500 hover:bg-pink-700 border-slate-500 p-2 cursor-pointer">Cancelar</div>
+                        <button type="submit" class="border rounded-full outline-none font-normal text-pink-500 hover:text-pink-700 border-slate-500 p-3 cursor-pointer">Apagar</button>
+                        <?php $_SESSION["conversa_id"] = $conversa_id ?>
+                    </div>
+
+                </div>
+
+            </form>
+
+
+        </dialog>
     </main>
     <!-- form para inserir as mensagens -->
-    <form method="post" enctype="multipart/form-data" action="" class="flex items-center fixed bottom-0 inset-x-0 h-16 bg-slate-400  px-4">
-        <div class=" bg-slate-300 z-auto flex items-center rounded-lg w-full  h-12 px-2">
+    <form method="post" enctype="multipart/form-data" class="flex items-center fixed bottom-0 inset-x-0 h-16 bg-slate-800  px-4">
+        <div class=" bg-slate-700 z-auto flex items-center rounded-lg w-full  h-12 px-2">
             <!-- <div class="w-[15rem] absolute bottom-16 h-[20rem] rounded-md p-1 z-10 py-2 divMsg ">
                 <div class="flex items-center p-2 transition-all cursor-pointer hover:bg-slate-400 rounded-lg">
                     <i class="bi bi-file-earmark-zip-fill text-slate-100 text-lg font-bold me-2"></i>
@@ -113,7 +124,7 @@ $conversaActual = $cmd->fetch(PDO::FETCH_ASSOC);
                 <i class="bi bi-plus-circle-fill text-[20pt] text-pink-600 cursor-pointer"></i>
             </span>
             <!-- Local onde seram colocadas as mensagens -->
-            <input type="text" placeholder="Escreve a mensagem" id="mensagem" oninput="verificarConteudo()" class="ms-2 h-8 border-noneoutline-none w-[100%] bg-slate-300 shadow-none border-none outline-none text-black">
+            <input type="text" placeholder="Escreve a mensagem" id="mensagem" oninput="verificarConteudo()" class="ms-2 h-8 border-noneoutline-none w-[100%] bg-slate-700 shadow-none border-none outline-none text-white">
             <!-- recuperando o id do user -->
             <input type="hidden" id="user_id" name="user_id" value="<?= $userAuth["id"]; ?>">
             <!-- recuperando o id da conversa -->
@@ -122,11 +133,13 @@ $conversaActual = $cmd->fetch(PDO::FETCH_ASSOC);
             <button type="submit" onclick="enviar()" id="btnSend" class="flex float-left">
                 <i class="bi bi-send-fill text-[20pt]  text-pink-600 cursor-pointer"></i>
             </button>
+
         </div>
     </form>
 </body>
-<script src="../assets/js/custom.js"></script>
-<script src="../assets/js/remote.js"></script>
+<script src="../assets/js/custom.js">
+
+</script>
 
 
 </html>
